@@ -1,11 +1,5 @@
 package com.ecommerce.config;
 
-<<<<<<< HEAD
-public class DBconfig
-{
-
-}
-=======
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -66,4 +60,3 @@ public class DBconfig
 		}
 	}
 }
->>>>>>> 2db5c13 (DBconfig and made the private username and password outside the file)
