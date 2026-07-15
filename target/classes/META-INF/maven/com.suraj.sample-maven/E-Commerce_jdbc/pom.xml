@@ -22,8 +22,9 @@
 			<artifactId>junit</artifactId>
 			<version>4.13.2</version>
 			<scope>test</scope>
+			
 		</dependency>
-		<!-- mysql connector for java from maven repo-->
+		<!-- mysql connector for  java from maven repo-->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
