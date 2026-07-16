@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.ecommerce.dao.ProductDao;
 import com.ecommerce.daoimp.ProductDaoImp;
+import com.ecommerce.exceptions.InsufficientStockException;
 import com.ecommerce.model.Product;
 import com.ecommerce.service.ProductService;
 
@@ -35,8 +36,21 @@ public class ProductServiceImpl implements ProductService
         return productDao.showAvailableStock(productId);
     }
     
+    
     @Override
-    public boolean reduceProductStock(long productId, int quantity) {
+    public boolean reduceProductStock(long productId, int quantity)
+            throws InsufficientStockException {
+
+        int availableStock = productDao.showAvailableStock(productId);
+
+        if (availableStock == -1) {
+            throw new IllegalArgumentException("Product not found.");
+        }
+
+        if (quantity > availableStock) {
+            throw new InsufficientStockException(
+                    "Only " + availableStock + " item(s) available in stock.");
+        }
 
         return productDao.reduceProductStock(productId, quantity);
     }
