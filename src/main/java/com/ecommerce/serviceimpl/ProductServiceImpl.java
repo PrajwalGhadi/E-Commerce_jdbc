@@ -9,6 +9,10 @@ import com.ecommerce.service.ProductService;
 
 public class ProductServiceImpl implements ProductService
 {
+	
+	public void test() {
+		System.out.println("APPLICATION");
+	}
 
 	// Dependency on DAO layer
     private ProductDao productDao = new ProductDaoImp();
@@ -30,5 +34,6 @@ public class ProductServiceImpl implements ProductService
 
         return productDao.showAvailableStock(productId);
     }
+    
 
 }
